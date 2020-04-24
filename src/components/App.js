@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import {Login, Register, Home, View, Write, Modify, ProfileModify, FindUser, NotFound, test} from '../Routes'
 
 const App = (props) => {
@@ -22,7 +22,7 @@ const App = (props) => {
   },[])
   return (
     <>
-      <Router basename='/'>
+      <BrowserRouter basename='/my_reducer_board/'>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/write" component={Write} />
