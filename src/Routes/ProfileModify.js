@@ -5,6 +5,7 @@ import InputWithLabel from '../AuthComponents/InputWithLabel';
 import AuthButton from '../AuthComponents/AuthButton';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import baseurl from '../baseurl';
 
 const Container = styled.div`
 width:400px;
@@ -94,7 +95,7 @@ const ProfileModify = () => {
 
             localStorage.setItem("username",res.username);
 
-            window.location.replace('/')
+            window.location.replace(baseurl)
         } catch(e) {
             console.log(e.response)
             throw e;
@@ -121,7 +122,7 @@ const ProfileModify = () => {
             </InputWrap>
             <BtnWrap className="flex w-full">
                 <AuthButton onClick={()=>handleModify()}>수정완료</AuthButton>
-                <AuthButton onClick={()=>{window.location.href = "/"}}>취소</AuthButton>
+                <AuthButton onClick={()=>{window.location.replace(baseurl)}}>취소</AuthButton>
             </BtnWrap>
             
         </Container>

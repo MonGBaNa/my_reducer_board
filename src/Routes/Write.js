@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import Header from '../components/Header';
+import baseurl from '../baseurl';
 
 const Container = styled.div`
 width:61vw;
@@ -84,10 +85,10 @@ const Write = (props) => {
                 <ContentsInput className="w-full p-2 border rounded" value={content} onChange={e=>contentChange(e.target.value)} required maxLength="1000" style={{resize:"none"}}/> 
             <div className="px-1 mb-2 flex justify-end">글자수 {contentCnt}/1000</div>
             <div className="px-1 flex justify-end">
-                <Link to="/" onClick={handleWrite}>
+                <Link to={baseurl} onClick={handleWrite}>
                     <button className="py-2 px-4 mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded shadow">확인</button>
                 </Link>
-                <Link to="/">
+                <Link to={baseurl}>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">취소</button>
                 </Link>
             </div>

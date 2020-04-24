@@ -5,6 +5,7 @@ import InputWithLabel from '../AuthComponents/InputWithLabel';
 import AuthButton from '../AuthComponents/AuthButton';
 import RightAlignLink from '../AuthComponents/RightAlignLink';
 import Header from '../components/Header';
+import baseurl from '../baseurl';
 
 const Container = styled.div`
 width:400px;
@@ -27,7 +28,7 @@ const InputWrap = styled.div``;
 const Login = () => {
     if(localStorage.getItem("username") !== null) { 
         window.alert("이미 로그인 되어 있는 세션입니다.")
-        window.location.replace('/') 
+        window.location.replace(baseurl) 
     }
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -45,7 +46,7 @@ const Login = () => {
             localStorage.setItem("id",res.id);
             localStorage.setItem("username",res.username);
             localStorage.setItem("thumbnail",res.thumbnail);
-            window.location.replace('/')
+            window.location.replace(baseurl)
         } catch(e) {
             const {status} = e.response;
             switch (status) {
@@ -70,7 +71,7 @@ const Login = () => {
                 <InputWithLabel label={"이메일"} type="text" placeholder="이메일을 입력해주세요" value={email} onChange={e=>setEmail(e.target.value)}/>
                 <InputWithLabel label={"비밀번호"} type="password" placeholder="비밀번호를 입력해주세요" value={password} onChange={e=>setPassword(e.target.value)}/>
                 <AuthButton onClick={onLogin}>로그인</AuthButton>
-                <RightAlignLink to="/auth/register">회원가입</RightAlignLink>
+                <RightAlignLink to={`${baseurl}/auth/register`}>회원가입</RightAlignLink>
             </InputWrap>
         </Container>
         </>
