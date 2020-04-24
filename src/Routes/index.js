@@ -1,0 +1,9 @@
+export {default as Login} from './Login';
+export {default as Register} from './Register';
+export {default as Home} from './Home';
+export {default as Write} from './Write';
+export {default as View} from './View';
+export {default as Modify} from './Modify';
+export {default as ProfileModify} from './ProfileModify';
+export {default as NotFound} from './NotFound';
+export {default as test} from './test';

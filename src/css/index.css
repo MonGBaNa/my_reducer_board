@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Jua', sans-serif;
+}
+
+html, body, #root {
+    width:100%;
+    height:100%;
+}
+
+#root {
+    overflow: scroll;
+}
+
+/* 스크롤바 숨기는 속성 Chrome, Safari, Opera*/
+/* #root{ 
+    -ms-overfloow-style:none; IE
+    scrollbar-width:none; Firefox
+} */
+
+#root::-webkit-scrollbar { 
+    display: none;
+}
