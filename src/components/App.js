@@ -22,7 +22,7 @@ const App = (props) => {
   },[])
   return (
     <>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename='/my_reducer_board'>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/write" component={Write} />
