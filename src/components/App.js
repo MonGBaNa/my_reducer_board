@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import {Login, Register, Home, View, Write, Modify, ProfileModify, FindUser, NotFound, test} from '../Routes'
 
-const App = () => {
+const App = (props) => {
   useEffect(()=>{
     const ServerCheck = async() => {
       try {
@@ -18,10 +18,11 @@ const App = () => {
       }
     }
     ServerCheck();
+    console.log(props)
   },[])
   return (
     <>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/write" component={Write} />
