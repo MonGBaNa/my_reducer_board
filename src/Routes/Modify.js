@@ -2,16 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../api';
 import styled from 'styled-components';
-
-const Header = styled.div`
-font-size:3rem;
-margin-bottom:3.5rem;
-@media screen and (max-width: 768px) {
-    /* 모바일에 사용될 스트일 시트를 여기에 작성합니다. */
-    font-size:2.15rem;
-    margin-bottom:1.5rem;
-}
-`;
+import Header from '../components/Header';
 
 const Container = styled.div`
 width:61vw;
@@ -76,7 +67,7 @@ const Modify = (props) => {
                 author:localStorage.getItem('id'),
                 text:content
             })   
-            window.location.replace(`/view/${id}`) 
+            window.location.replace(process.env.PUBLIC_URL+`/view/${id}`) 
         } catch (e) {
             throw e
         }
@@ -101,7 +92,7 @@ const Modify = (props) => {
 
     return(
         <>
-        <Header className="bg-blue-600 font-bold text-white text-center tracking-widest"><a href="/">헤더</a></Header>
+        <Header/>
         <Container className="bg-gray-100 border-2 border-gray-500 mx-auto p-2 my-6">
             <div className="bg-blue-300 p-2 flex">제목</div>
             <div className="border-b border-gray-500 pb-2">
@@ -111,10 +102,15 @@ const Modify = (props) => {
             <ContentsInput className="w-full p-2 border rounded" value={content} onChange={e=>contentChange(e.target.value)} required maxLength="1000" style={{resize:"none"}}/> 
             <div className="px-1 mb-2 flex justify-end">글자수 {contentCnt}/1000</div>
             <div className="px-1 flex justify-end">
-                <Link to={`/view/${id}`} onClick={handleModify}>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow">확인</button>
+                <Link to={process.env.PUBLIC_URL+`/view/${id}`} onClick={handleModify}>
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 mr-2 rounded shadow">확인</button>
+                </Link>
+                
+                <Link to={process.env.PUBLIC_URL+`/view/${id}`}>
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow">취소</button>
                 </Link>
             </div>
+            
         </Container>
         </>
     );

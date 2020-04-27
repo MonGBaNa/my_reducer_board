@@ -67,7 +67,7 @@ const Write = (props) => {
                 author:localStorage.getItem('id'),
                 text:content
             })
-            window.location.replace('/')
+            window.location.replace(process.env.PUBLIC_URL)
         } catch(e) {
             throw e;
         }
@@ -86,10 +86,10 @@ const Write = (props) => {
                 <ContentsInput className="w-full p-2 border rounded" value={content} onChange={e=>contentChange(e.target.value)} required maxLength="1000" style={{resize:"none"}}/> 
             <div className="px-1 mb-2 flex justify-end">글자수 {contentCnt}/1000</div>
             <div className="px-1 flex justify-end">
-                <Link to="/" onClick={handleWrite}>
+                <Link to={process.env.PUBLIC_URL} onClick={handleWrite}>
                     <button className="py-2 px-4 mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded shadow">확인</button>
                 </Link>
-                <Link to="/">
+                <Link to={process.env.PUBLIC_URL}>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">취소</button>
                 </Link>
             </div>

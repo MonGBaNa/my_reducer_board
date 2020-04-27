@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import { api } from '../api';
 import Comment from './Comment';
+
 
 const CommentsArea = styled.div`
     min-height:145px;
@@ -35,7 +36,7 @@ const CommentsList = ({commentData, postId}) => {
         }
         try {
             console.log("입력된 댓글: ", comment);
-            await axios.post('/api/posts/comments/create',{
+            await api.post('/api/posts/comments/create',{
                 postId:postId,
                 author:localStorage.getItem('id'),
                 text:comment
@@ -48,7 +49,7 @@ const CommentsList = ({commentData, postId}) => {
 
     const handleDelete = async(commentId) => {
         try {
-            await axios.post('/api/posts/comments/delete',{
+            await api.post('/api/posts/comments/delete',{
                 postId:postId,
                 commentId:commentId
             })

@@ -21,18 +21,18 @@ const App = (props) => {
   },[])
   return (
     <>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Switch>
-          <AuthRoute exact path="/" isAuth={localStorage.getItem("username") !== null} component={Home}/>
-          <Route path="/write" component={Write} />
-          <Route path="/modify/:id" component={Modify} />
-          <Route path="/view/:id" component={View} />
-          <Route path="/auth/login" component={Login} />
-          <Route path="/auth/register" component={Register} />
-          <Route path="/profile/modify" component={ProfileModify} />
-          <Route path="/notfound" component={NotFound} />
-          <Route path="/test" component={test} />
-          <Redirect path="*" to="/notfound" />
+          <AuthRoute exact path={process.env.PUBLIC_URL + "/"} isAuth={localStorage.getItem("username") !== null} component={Home}/>
+          <Route path={process.env.PUBLIC_URL + "/write"} component={Write} />
+          <Route path={process.env.PUBLIC_URL + "/modify/:id"} component={Modify} />
+          <Route path={process.env.PUBLIC_URL + "/view/:id"} component={View} />
+          <Route path={process.env.PUBLIC_URL + "/auth/login"} component={Login} />
+          <Route path={process.env.PUBLIC_URL + "/auth/register"} component={Register} />
+          <Route path={process.env.PUBLIC_URL + "/profile/modify"} component={ProfileModify} />
+          <Route path={process.env.PUBLIC_URL + "/notfound"} component={NotFound} />
+          <Route path={process.env.PUBLIC_URL + "/test"} component={test} />
+          <Redirect path="*" to={process.env.PUBLIC_URL + "/notfound"} />
         </Switch>
       </Router>
     </>

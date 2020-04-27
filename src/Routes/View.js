@@ -61,7 +61,7 @@ const View = (props) => {
         e.preventDefault();
         if( window.confirm("정말 삭제하시겠습니까?") ) {
             await api.delete(`/api/posts/${id}`)
-            window.location.replace('/')
+            window.location.replace(process.env.PUBLIC_URL)
         } else {
             return;
         }
@@ -77,7 +77,7 @@ const View = (props) => {
             } catch(e) {
                 const {data:{message}} = e.response;
                 if(message === "없는 게시물 입니다.") {
-                    window.location.replace("/notfound")
+                    window.location.replace(process.env.PUBLIC_URL+"/notfound")
                 } else {
                     throw e;
                 }
@@ -105,16 +105,16 @@ const View = (props) => {
                 <CommentsList commentData={post.comments} postId={id} />
 
                 <div className="px-1 pt-3 flex justify-end">
-                    <Link to="/" onClick={()=>{console.log("목록으로")}}>
+                    <Link to={process.env.PUBLIC_URL} onClick={()=>{console.log("목록으로")}}>
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow mr-2">목록</button>
                     </Link>
 
                     {post.author.profile.username === localStorage.getItem('username') ? (<>
-                    <Link to={`/modify/${id}`} onClick={()=>{console.log("수정으로")}}>
+                    <Link to={process.env.PUBLIC_URL+`/modify/${id}`} onClick={()=>{console.log("수정으로")}}>
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow mr-2">수정</button>
                     </Link>
 
-                    <Link to="/" onClick={handleDelete}>
+                    <Link to={process.env.PUBLIC_URL} onClick={handleDelete}>
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow">삭제</button>
                     </Link>
                     </>):null}

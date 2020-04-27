@@ -9,7 +9,7 @@ const AuthRoute = ({isAuth, ...rest}) => {
                     {...rest}
                 />
             ) : (
-                <Redirect to="/auth/login" />
+                <Redirect to={process.env.PUBLIC_URL+"/auth/login"} />
             )}
         </>
     );
