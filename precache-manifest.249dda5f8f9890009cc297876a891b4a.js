@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0766d5983ca8d6057358df55cf30b4bc",
+    "revision": "9d34aa700576c10420e2aa097de58f24",
     "url": "/my_reducer_board/index.html"
   },
   {
-    "revision": "ab4378c8617b8aa2c8a3",
+    "revision": "d9d924d97ed02f585801",
     "url": "/my_reducer_board/static/css/main.2d684372.chunk.css"
   },
   {
-    "revision": "6341c670c07db75939c2",
-    "url": "/my_reducer_board/static/js/2.c69f4130.chunk.js"
+    "revision": "7e02d04155c849e5a0e3",
+    "url": "/my_reducer_board/static/js/2.78a1772b.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/my_reducer_board/static/js/2.c69f4130.chunk.js.LICENSE.txt"
+    "url": "/my_reducer_board/static/js/2.78a1772b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ab4378c8617b8aa2c8a3",
-    "url": "/my_reducer_board/static/js/main.8140bc74.chunk.js"
+    "revision": "d9d924d97ed02f585801",
+    "url": "/my_reducer_board/static/js/main.a772f998.chunk.js"
   },
   {
     "revision": "33bdc54d0a02d4b580f4",
