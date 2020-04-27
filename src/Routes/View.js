@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import CommentsList from '../CommentComponents/CommentsList';
-import baseurl from '../baseurl';
 
 const Container = styled.div`
 width:61vw;
@@ -57,9 +56,11 @@ const View = (props) => {
     const [post, setPost] = useState("");
     const [loading, setLoading] = useState(false);
     
-    const handleDelete = async() => {
+    const handleDelete = async(e) => {
+        e.preventDefault();
         if( window.confirm("정말 삭제하시겠습니까?") ) {
             await axios.delete(`/api/posts/${id}`)
+            window.location.replace('/')
         } else {
             return;
         }
@@ -75,7 +76,7 @@ const View = (props) => {
             } catch(e) {
                 const {data:{message}} = e.response;
                 if(message === "없는 게시물 입니다.") {
-                    window.location.replace(baseurl+'/notfound')
+                    window.location.replace("/notfound")
                 } else {
                     throw e;
                 }
@@ -103,16 +104,16 @@ const View = (props) => {
                 <CommentsList commentData={post.comments} postId={id} />
 
                 <div className="px-1 pt-3 flex justify-end">
-                    <Link to={baseurl} onClick={()=>{console.log("목록으로")}}>
+                    <Link to="/" onClick={()=>{console.log("목록으로")}}>
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow mr-2">목록</button>
                     </Link>
 
                     {post.author.profile.username === localStorage.getItem('username') ? (<>
-                    <Link to={`${baseurl}/modify/${id}`} onClick={()=>{console.log("수정으로")}}>
+                    <Link to={`/modify/${id}`} onClick={()=>{console.log("수정으로")}}>
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow mr-2">수정</button>
                     </Link>
 
-                    <Link to={baseurl} onClick={handleDelete}>
+                    <Link to="/" onClick={handleDelete}>
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow">삭제</button>
                     </Link>
                     </>):null}

@@ -4,14 +4,13 @@ import Board from '../components/Board';
 import Header from '../components/Header';
 import { connect } from 'react-redux';
 import { setCollectionCnt, setData } from '../store';
-import baseurl from '../baseurl';
 
 const Home = ({history, state, setCollectionCnt, setData}) => {
     const {action} = history;
     const [loading, setLoading] = useState(false);
 
     if(action === "PUSH") {window.location.reload()}
-    if(localStorage.getItem("username") === null) { window.location.replace(baseurl+'/auth/login') } 
+    if(localStorage.getItem("username") === null) { window.location.replace('/auth/login') } 
 
     const { page, itemSize } = state;
 

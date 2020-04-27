@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 import styled from 'styled-components';
-import baseurl from '../baseurl';
 
 const Header = styled.div`
 font-size:3rem;
@@ -66,16 +65,18 @@ const Modify = (props) => {
     },[id])
 
     const handleModify = async(e) => {
-        if(content === "" || title === ""){
-            e.preventDefault();
-            window.alert("제목 또는 내용에 공백이 있습니다.")
+        e.preventDefault();
+        if(content.trim() === "" || title.trim() === ""){
+            window.alert("제목 또는 내용이 공백입니다.")
+            return false;
         }
         try {
             await axios.patch(`/api/posts/${id}`,{
                 title:title,
-                user:localStorage.getItem('username'),
+                author:localStorage.getItem('id'),
                 text:content
-            })    
+            })   
+            window.location.replace(`/view/${id}`) 
         } catch (e) {
             throw e
         }
@@ -110,7 +111,7 @@ const Modify = (props) => {
             <ContentsInput className="w-full p-2 border rounded" value={content} onChange={e=>contentChange(e.target.value)} required maxLength="1000" style={{resize:"none"}}/> 
             <div className="px-1 mb-2 flex justify-end">글자수 {contentCnt}/1000</div>
             <div className="px-1 flex justify-end">
-                <Link to={`${baseurl}/view/${id}`} onClick={handleModify}>
+                <Link to={`/view/${id}`} onClick={handleModify}>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow">확인</button>
                 </Link>
             </div>

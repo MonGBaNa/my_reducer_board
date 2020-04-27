@@ -1,1 +1,0 @@
-export default '/my_reducer_board'

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import Header from '../components/Header';
-import baseurl from '../baseurl';
 
 const Container = styled.div`
 width:61vw;
@@ -56,9 +55,9 @@ const Write = (props) => {
     }
 
     const handleWrite = async(e) => {
-        if(content.trimLeft().trimRight() === "" || title.trimLeft().trimRight() === ""){
-            e.preventDefault();
-            window.alert("제목 또는 내용에 공백이 있습니다.")
+        e.preventDefault();
+        if(content.trim() === "" || title.trim() === ""){
+            window.alert("제목 또는 내용이 공백입니다.")
             return false;
         }
         try {
@@ -67,6 +66,7 @@ const Write = (props) => {
                 author:localStorage.getItem('id'),
                 text:content
             })
+            window.location.replace('/')
         } catch(e) {
             throw e;
         }
@@ -85,10 +85,10 @@ const Write = (props) => {
                 <ContentsInput className="w-full p-2 border rounded" value={content} onChange={e=>contentChange(e.target.value)} required maxLength="1000" style={{resize:"none"}}/> 
             <div className="px-1 mb-2 flex justify-end">글자수 {contentCnt}/1000</div>
             <div className="px-1 flex justify-end">
-                <Link to={baseurl} onClick={handleWrite}>
+                <Link to="/" onClick={handleWrite}>
                     <button className="py-2 px-4 mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded shadow">확인</button>
                 </Link>
-                <Link to={baseurl}>
+                <Link to="/">
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">취소</button>
                 </Link>
             </div>

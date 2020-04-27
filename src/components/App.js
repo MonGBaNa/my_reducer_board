@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import {Login, Register, Home, View, Write, Modify, ProfileModify, FindUser, NotFound, test} from '../Routes'
+import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import {Login, Register, Home, View, Write, Modify, ProfileModify, NotFound, test} from '../Routes'
 
 const App = (props) => {
   useEffect(()=>{
@@ -19,10 +19,11 @@ const App = (props) => {
     }
     ServerCheck();
     console.log(props)
+    console.log(process.env.PUBLIC_URL)
   },[])
   return (
     <>
-      <Router basename="/my_reducer_board/">
+      <Router>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/write" component={Write} />
