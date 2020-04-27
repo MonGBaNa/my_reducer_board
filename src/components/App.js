@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import {Login, Register, Home, View, Write, Modify, ProfileModify, NotFound, test} from '../Routes'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import {Login, Register, Home, View, Write, Modify, ProfileModify, NotFound, test, AuthRoute} from '../Routes'
 
 const App = (props) => {
   useEffect(()=>{
@@ -18,14 +18,12 @@ const App = (props) => {
       }
     }
     ServerCheck();
-    console.log(props)
-    console.log(process.env.PUBLIC_URL)
   },[])
   return (
     <>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <AuthRoute exact path="/" isAuth={localStorage.getItem("username") !== null} component={Home}/>
           <Route path="/write" component={Write} />
           <Route path="/modify/:id" component={Modify} />
           <Route path="/view/:id" component={View} />

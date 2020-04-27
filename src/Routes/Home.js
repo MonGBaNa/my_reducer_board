@@ -10,7 +10,6 @@ const Home = ({history, state, setCollectionCnt, setData}) => {
     const [loading, setLoading] = useState(false);
 
     if(action === "PUSH") {window.location.reload()}
-    if(localStorage.getItem("username") === null) { window.location.replace('/auth/login') } 
 
     const { page, itemSize } = state;
 

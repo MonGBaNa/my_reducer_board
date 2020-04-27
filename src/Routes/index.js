@@ -7,3 +7,4 @@ export {default as Modify} from './Modify';
 export {default as ProfileModify} from './ProfileModify';
 export {default as NotFound} from './NotFound';
 export {default as test} from './test';
+export {default as AuthRoute} from './AuthRoute'
