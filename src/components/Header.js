@@ -84,7 +84,7 @@ const Header = ({title = "미정", isNavi = false}) => {
                 <div className="font-bold">{localStorage.getItem('username')}</div>
                 <div className="grid grid-cols-2 gap-3" >
                 <a className="bg-indigo-200 p-1" href={process.env.PUBLIC_URL + "/profile/modify"}>정보수정</a>
-                <a className="bg-indigo-200 p-1" href={process.env.PUBLIC_URL + "/auth/login"} onClick={onLogout}>로그아웃</a>
+                <a className="bg-indigo-200 p-1" href={process.env.PUBLIC_URL} onClick={onLogout}>로그아웃</a>
                 </div>
             </DesktopProfile>
             <MobileProfile>
