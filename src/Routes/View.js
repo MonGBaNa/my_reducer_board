@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { api } from '../api';
 import styled from 'styled-components';
 
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import CommentsList from '../CommentComponents/CommentsList';
+
 
 const Container = styled.div`
 width:61vw;
@@ -59,7 +60,7 @@ const View = (props) => {
     const handleDelete = async(e) => {
         e.preventDefault();
         if( window.confirm("정말 삭제하시겠습니까?") ) {
-            await axios.delete(`/api/posts/${id}`)
+            await api.delete(`/api/posts/${id}`)
             window.location.replace('/')
         } else {
             return;
@@ -70,7 +71,7 @@ const View = (props) => {
         const getPost = async() => {
             setLoading(false);
             try {
-                const {data:post} = await axios.get(`/api/posts/${id}`);
+                const {data:post} = await api.get(`/api/posts/${id}`);
                 setPost(post);
                 setLoading(true);
             } catch(e) {

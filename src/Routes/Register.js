@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios'
+import { api } from '../api';
 import InputWithLabel from '../AuthComponents/InputWithLabel';
 import AuthButton from '../AuthComponents/AuthButton';
 import RightAlignLink from '../AuthComponents/RightAlignLink';
 import Header from '../components/Header';
+
 
 const Container = styled.div`
 width:450px;
@@ -57,7 +58,7 @@ const Register = () => {
             return false;
         }
         try {
-            const res = await axios.get(`/api/users/exists/email/${email}`)
+            const res = await api.get(`/api/users/exists/email/${email}`)
             if(res.data !== "") {
                 setConfirmEmail({
                     ...confirmEmail,
@@ -83,7 +84,7 @@ const Register = () => {
                 window.alert('닉네임에 공백이 포함되어있습니다.')
                 return false;
             }
-            const res = await axios.get(`/api/users/exists/username/${username}`)
+            const res = await api.get(`/api/users/exists/username/${username}`)
             if(res.data !== "") {
                 setConfirmUsername({
                     ...confirmUsername,
@@ -151,7 +152,7 @@ const Register = () => {
 
         try {
             console.log("회원가입")
-            const {data:res} = await axios.post('/api/users/register/local',{
+            const {data:res} = await api.post('/api/users/register/local',{
                 username,
                 email,
                 password

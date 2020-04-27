@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
+import { api } from '../api';
 import styled from 'styled-components';
 
 const Header = styled.div`
@@ -56,7 +56,7 @@ const Modify = (props) => {
     
     useEffect(()=>{
         const getData = async() => {
-            const { data: post } = await axios.get(`/api/posts/${id}`);
+            const { data: post } = await api.get(`/api/posts/${id}`);
             setTitle(post.title);
             setContent(post.text);
             setContentCnt(post.text.length)
@@ -71,7 +71,7 @@ const Modify = (props) => {
             return false;
         }
         try {
-            await axios.patch(`/api/posts/${id}`,{
+            await api.patch(`/api/posts/${id}`,{
                 title:title,
                 author:localStorage.getItem('id'),
                 text:content

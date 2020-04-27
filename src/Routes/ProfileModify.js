@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
-import axios from 'axios';
+import { api } from '../api';
 import InputWithLabel from '../AuthComponents/InputWithLabel';
 import AuthButton from '../AuthComponents/AuthButton';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+
 
 const Container = styled.div`
 width:400px;
@@ -47,7 +48,7 @@ const ProfileModify = () => {
 
     const getProfile = async() => {
         try {
-            const { data:res } = await axios.get(`/api/users/profile/${localStorage.getItem('id')}`);
+            const { data:res } = await api.get(`/api/users/profile/${localStorage.getItem('id')}`);
             const { profile:{username}, password } = res;
             setUsername(username);
             setPassword(password);
@@ -86,7 +87,7 @@ const ProfileModify = () => {
         `);
 
         try {
-            const {data:res} = await axios.post('/api/users/modify/profile',{
+            const {data:res} = await api.post('/api/users/modify/profile',{
                 userId:localStorage.getItem('id'),
                 username:changeUsername,
                 password:changePassword

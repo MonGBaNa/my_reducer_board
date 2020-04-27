@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { api } from '../api';
 import Board from '../components/Board';
 import Header from '../components/Header';
 import { connect } from 'react-redux';
 import { setCollectionCnt, setData } from '../store';
+
 
 const Home = ({history, state, setCollectionCnt, setData}) => {
     const {action} = history;
@@ -16,7 +17,7 @@ const Home = ({history, state, setCollectionCnt, setData}) => {
     const getCollectionCount = async() => {
         try {
             setLoading(false);
-            const {data:count} = await axios.get(`/api/posts/count`);
+            const {data:count} = await api.get(`/api/posts/count`);
             setCollectionCnt(count);
         } catch(e) {
             console.log(e.response)
@@ -25,7 +26,7 @@ const Home = ({history, state, setCollectionCnt, setData}) => {
     }
     const fetchingData = async() => {
         try {
-            const {data:posts} = await axios.get(`/api/posts?page=${page}&items_size=${itemSize}`);
+            const {data:posts} = await api.get(`/api/posts?page=${page}&items_size=${itemSize}`);
             setData(posts)
             setLoading(true);
         } catch(e) {

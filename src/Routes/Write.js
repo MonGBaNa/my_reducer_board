@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../api';
 import styled from 'styled-components';
 import Header from '../components/Header';
+
 
 const Container = styled.div`
 width:61vw;
@@ -61,7 +62,7 @@ const Write = (props) => {
             return false;
         }
         try {
-            await axios.post('/api/posts',{
+            await api.post('/api/posts',{
                 title:title,
                 author:localStorage.getItem('id'),
                 text:content

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import axios from 'axios'
+import { api } from '../api';
 import styled from 'styled-components';
 import InputWithLabel from '../AuthComponents/InputWithLabel';
 import AuthButton from '../AuthComponents/AuthButton';
 import RightAlignLink from '../AuthComponents/RightAlignLink';
 import Header from '../components/Header';
+
 
 const Container = styled.div`
 width:400px;
@@ -37,7 +38,7 @@ const Login = () => {
             return false;
         }
         try {
-            const {data:res} = await axios.post('/api/users/login/local',{
+            const {data:res} = await api.post('/api/users/login/local',{
                 email,
                 password
             });

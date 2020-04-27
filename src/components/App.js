@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
+import { api } from '../api';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import {Login, Register, Home, View, Write, Modify, ProfileModify, NotFound, test, AuthRoute} from '../Routes'
 
@@ -7,7 +7,7 @@ const App = (props) => {
   useEffect(()=>{
     const ServerCheck = async() => {
       try {
-        await axios.get('/api/check');
+        await api.get('/api/check');
       } catch(e) {
         const {status} = e.response;
         console.log(status);
