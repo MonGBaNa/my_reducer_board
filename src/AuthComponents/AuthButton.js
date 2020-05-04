@@ -6,8 +6,6 @@ const Wrapper = styled.div`
     user-select:none;
     transition: .1s all;
 
-    
-
     &:not(:last-child) {
         border-right:2px solid #EBF4FF;
     }

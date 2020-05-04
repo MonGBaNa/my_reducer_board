@@ -5,6 +5,7 @@ import InputWithLabel from '../AuthComponents/InputWithLabel';
 import AuthButton from '../AuthComponents/AuthButton';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import { useHistory } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -45,6 +46,7 @@ const ProfileModify = () => {
     const [currentPassword, setCurrentPassword] = useState("");
     const [changePassword, setChangePassword] = useState("");
     const [changePasswordConfirm, setChangePasswordConfirm] = useState("");
+    let history = useHistory();
 
     const getProfile = async() => {
         try {
@@ -95,7 +97,7 @@ const ProfileModify = () => {
 
             localStorage.setItem("username",res.username);
 
-            window.location.replace("/")
+            history.replace('/')
         } catch(e) {
             console.log(e.response)
             throw e;
@@ -121,8 +123,8 @@ const ProfileModify = () => {
 
             </InputWrap>
             <BtnWrap className="flex w-full">
-                <AuthButton onClick={()=>handleModify()}>수정완료</AuthButton>
-                <AuthButton onClick={()=>{window.location.replace("/")}}>취소</AuthButton>
+                <AuthButton to="/" onClick={()=>handleModify()}>수정완료</AuthButton>
+                <AuthButton to="/" >취소</AuthButton>
             </BtnWrap>
             
         </Container>

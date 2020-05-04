@@ -5,6 +5,7 @@ import InputWithLabel from '../AuthComponents/InputWithLabel';
 import AuthButton from '../AuthComponents/AuthButton';
 import RightAlignLink from '../AuthComponents/RightAlignLink';
 import Header from '../components/Header';
+import { useHistory } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -45,6 +46,8 @@ const Register = () => {
         confirmed:"",
         useable:false
     });
+
+    let history = useHistory();
 
     const checkEmail = async() => {
         const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -157,11 +160,10 @@ const Register = () => {
                 email,
                 password
             });
-
             localStorage.setItem("id",res.id);
             localStorage.setItem("username",res.username);
             localStorage.setItem("thumbnail",res.thumbnail);
-            window.location.replace("/")
+            history.replace("/")
         } catch(e) {
             throw e;
         }

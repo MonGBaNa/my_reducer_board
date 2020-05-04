@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Overlay = styled.div`
 position:absolute;
@@ -71,10 +71,14 @@ display:none;
 const Header = ({title = "미정", isNavi = false}) => {
     const [isNaviOn, setIsNaviOn] = useState(false);
 
+    let history = useHistory();
+
     const onLogout = () => {
+        
         localStorage.removeItem('id')
         localStorage.removeItem('username')
         localStorage.removeItem('thumbnail')
+        history.replace('/')
     }
     return (
         <Container className="p-4 mb-10 bg-indigo-500 border-b-4 border-indigo-700 shadow-xl" isNavi={isNavi}>
@@ -83,8 +87,8 @@ const Header = ({title = "미정", isNavi = false}) => {
                 <DesktopProfile className="border-4 border-indigo-200 p-2 text-sm text-gray-800 text-right bg-white" >
                 <div className="font-bold">{localStorage.getItem('username')}</div>
                 <div className="grid grid-cols-2 gap-3" >
-                <Link to="/profile/modify" className="bg-indigo-200 p-1">정보수정</Link>
-                <Link to="/" className="bg-indigo-200 p-1" onClick={onLogout}>로그아웃</Link>
+                    <Link to="/profile/modify" className="bg-indigo-200 p-1">정보수정</Link>
+                    <Link to="/" className="bg-indigo-200 p-1" onClick={onLogout}>로그아웃</Link>
                 </div>
             </DesktopProfile>
             <MobileProfile>

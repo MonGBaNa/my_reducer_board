@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { api } from '../api';
 import styled from 'styled-components';
 import Header from '../components/Header';
@@ -40,6 +40,8 @@ const Modify = (props) => {
 
     const {match:{params:{id}}} = props;
 
+    let history = useHistory();
+
     useEffect(()=>{
         const {history:{action}} = props
         console.log(action);
@@ -67,7 +69,7 @@ const Modify = (props) => {
                 author:localStorage.getItem('id'),
                 text:content
             })   
-            window.location.replace(`/view/${id}`) 
+            history.replace(`/view/${id}`) 
         } catch (e) {
             throw e
         }

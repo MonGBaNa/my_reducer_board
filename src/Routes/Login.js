@@ -5,6 +5,7 @@ import InputWithLabel from '../AuthComponents/InputWithLabel';
 import AuthButton from '../AuthComponents/AuthButton';
 import RightAlignLink from '../AuthComponents/RightAlignLink';
 import Header from '../components/Header';
+import { useHistory } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -26,9 +27,11 @@ font-size:1.65rem;
 const InputWrap = styled.div``;
 
 const Login = () => {
+    let history = useHistory();
+
     if(localStorage.getItem("username") !== null) { 
         window.alert("이미 로그인 되어 있는 세션입니다.")
-        window.location.replace('/') 
+        history.replace('/')
     }
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -46,7 +49,7 @@ const Login = () => {
             localStorage.setItem("id",res.id);
             localStorage.setItem("username",res.username);
             localStorage.setItem("thumbnail",res.thumbnail);
-            window.location.replace("/")
+            history.replace('/')
         } catch(e) {
             const {status} = e.response;
             switch (status) {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { api } from '../api';
 import styled from 'styled-components';
 
@@ -57,11 +57,13 @@ const View = (props) => {
     const [post, setPost] = useState("");
     const [loading, setLoading] = useState(false);
     
+    let history = useHistory();
+
     const handleDelete = async(e) => {
         e.preventDefault();
         if( window.confirm("정말 삭제하시겠습니까?") ) {
             await api.delete(`/api/posts/${id}`)
-            window.location.replace("/")
+            history.replace("/")
         } else {
             return;
         }
@@ -77,7 +79,7 @@ const View = (props) => {
             } catch(e) {
                 const {data:{message}} = e.response;
                 if(message === "없는 게시물 입니다.") {
-                    window.location.replace("/notfound")
+                    history.replace("/notfound")
                 } else {
                     throw e;
                 }

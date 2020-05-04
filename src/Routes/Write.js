@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { api } from '../api';
 import styled from 'styled-components';
 import Header from '../components/Header';
@@ -38,6 +38,8 @@ const Write = (props) => {
     const [content, setContent] = useState("");
     const [contentCnt,setContentCnt] = useState(0);
 
+    let history = useHistory();
+
     const titleChange = (text) => {
         if(text.length > 50) {
             window.alert("50자 제한입니다.")
@@ -67,7 +69,8 @@ const Write = (props) => {
                 author:localStorage.getItem('id'),
                 text:content
             })
-            window.location.replace("/")
+            
+            history.replace('/')
         } catch(e) {
             throw e;
         }

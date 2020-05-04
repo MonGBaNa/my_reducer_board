@@ -21,17 +21,17 @@ const App = (props) => {
   },[])
   return (
     <>
-      <Router basename="/">
+      <Router>
         <Switch>
           <AuthRoute exact path="/" isAuth={localStorage.getItem("username") !== null} component={Home}/>
-          <Route path="/write" component={Write} />
-          <Route path="/modify/:id" component={Modify} />
-          <Route path="/view/:id" component={View} />
-          <Route path="/auth/login" component={Login} />
-          <Route path="/auth/register" component={Register} />
-          <Route path="/profile/modify" component={ProfileModify} />
-          <Route path="/notfound" component={NotFound} />
-          <Route path="/test" component={test} />
+          <Route exact path="/write" component={Write} />
+          <Route exact path="/modify/:id" component={Modify} />
+          <Route exact path="/view/:id" component={View} />
+          <Route exact path="/auth/login" component={Login} />
+          <Route exact path="/auth/register" component={Register} />
+          <Route exact path="/profile/modify" component={ProfileModify} />
+          <Route exact path="/notfound" component={NotFound} />
+          <Route exact path="/test" component={test} />
           <Redirect path="*" to="/notfound" />
         </Switch>
       </Router>
