@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "816a08e8989b6f8ce2327abde6d7d79c",
+    "revision": "0c76f7683a1564b9437a14c9d6c652ad",
     "url": "/my_reducer_board/index.html"
   },
   {
-    "revision": "f05efc7f27b9a264559c",
+    "revision": "9e2bf0910829db96454f",
     "url": "/my_reducer_board/static/css/main.2d684372.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/my_reducer_board/static/js/2.b483e114.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f05efc7f27b9a264559c",
-    "url": "/my_reducer_board/static/js/main.bd0c27f7.chunk.js"
+    "revision": "9e2bf0910829db96454f",
+    "url": "/my_reducer_board/static/js/main.f40c1478.chunk.js"
   },
   {
     "revision": "33bdc54d0a02d4b580f4",
