@@ -49,7 +49,7 @@ const Board = ({state, setItemSize, setPage, loading}) => {
                             <option className="bg-white" value={20}>20개</option>
                         </select>
                     </div>
-                    <Link to={process.env.PUBLIC_URL + "/write"}>
+                    <Link to="/write">
                         <WriteBtn className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow"> 글쓰기 </WriteBtn>
                     </Link>
                 </div>
@@ -59,7 +59,7 @@ const Board = ({state, setItemSize, setPage, loading}) => {
                 <BtnContainer />
 
                 <div className="px-1 flex justify-end">
-                    <Link to={process.env.PUBLIC_URL + "/write"}>
+                    <Link to="/write">
                         <WriteBtn className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow"> 글쓰기 </WriteBtn>
                     </Link>
                 </div>

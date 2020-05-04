@@ -95,7 +95,7 @@ const ProfileModify = () => {
 
             localStorage.setItem("username",res.username);
 
-            window.location.replace(process.env.PUBLIC_URL)
+            window.location.replace("/")
         } catch(e) {
             console.log(e.response)
             throw e;
@@ -122,7 +122,7 @@ const ProfileModify = () => {
             </InputWrap>
             <BtnWrap className="flex w-full">
                 <AuthButton onClick={()=>handleModify()}>수정완료</AuthButton>
-                <AuthButton onClick={()=>{window.location.replace(process.env.PUBLIC_URL)}}>취소</AuthButton>
+                <AuthButton onClick={()=>{window.location.replace("/")}}>취소</AuthButton>
             </BtnWrap>
             
         </Container>

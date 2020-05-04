@@ -78,13 +78,13 @@ const Header = ({title = "미정", isNavi = false}) => {
     }
     return (
         <Container className="p-4 mb-10 bg-indigo-500 border-b-4 border-indigo-700 shadow-xl" isNavi={isNavi}>
-          <HeaderTitle className="font-bold text-white"><Link to={process.env.PUBLIC_URL}>{title}</Link></HeaderTitle>
+          <HeaderTitle className="font-bold text-white"><Link to="/">{title}</Link></HeaderTitle>
             {isNavi ? (<>
                 <DesktopProfile className="border-4 border-indigo-200 p-2 text-sm text-gray-800 text-right bg-white" >
                 <div className="font-bold">{localStorage.getItem('username')}</div>
                 <div className="grid grid-cols-2 gap-3" >
-                <a className="bg-indigo-200 p-1" href={process.env.PUBLIC_URL + "/profile/modify"}>정보수정</a>
-                <a className="bg-indigo-200 p-1" href={process.env.PUBLIC_URL} onClick={onLogout}>로그아웃</a>
+                <Link to="/profile/modify" className="bg-indigo-200 p-1">정보수정</Link>
+                <Link to="/" className="bg-indigo-200 p-1" onClick={onLogout}>로그아웃</Link>
                 </div>
             </DesktopProfile>
             <MobileProfile>
@@ -94,8 +94,8 @@ const Header = ({title = "미정", isNavi = false}) => {
                     <div className="text-right mb-1"><span className="px-1 bg-gray-400 rounded cursor-pointer" onClick={()=>{setIsNaviOn(!isNaviOn)}}>&times;</span></div>
                     <h4 className="p-1 border" >{localStorage.getItem('username')}</h4>
                     <ul >
-                        <li className="p-1 bg-gray-200 border" ><a href={process.env.PUBLIC_URL + "/profile/modify"}>정보수정</a></li>
-                        <li className="p-1 bg-gray-200 border" onClick={onLogout}><a href={process.env.PUBLIC_URL + "/auth/login"} >로그아웃</a></li>
+                        <li className="p-1 bg-gray-200 border" ><Link to="/profile/modify">정보수정</Link></li>
+                        <li className="p-1 bg-gray-200 border" onClick={onLogout}><Link to="/auth/login" >로그아웃</Link></li>
                     </ul>
                 </Navi>
                 <Overlay className="overlay" onClick={()=>{setIsNaviOn(!isNaviOn)}}/>

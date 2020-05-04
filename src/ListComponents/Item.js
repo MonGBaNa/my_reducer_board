@@ -40,7 +40,7 @@ const Item = ({title, author, createdAt, lnk, comments_len}) => {
     return (
         <TdRow>
             <div className="flex">
-                <div className="px-1 text-gray-800 font-bold"><Link className="hover:underline hover:text-gray-600" to={process.env.PUBLIC_URL+`/view/${lnk}`}>{title}</Link></div>
+                <div className="px-1 text-gray-800 font-bold"><Link className="hover:underline hover:text-gray-600" to={`/view/${lnk}`}>{title}</Link></div>
                 <div className="text-gray-600 font-bold ml-4">{comments_len > 0 ? `[ ${comments_len} ]`:``}</div>
             </div>
             <div className="px-2 text-center">{author}</div>

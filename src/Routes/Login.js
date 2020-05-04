@@ -46,7 +46,7 @@ const Login = () => {
             localStorage.setItem("id",res.id);
             localStorage.setItem("username",res.username);
             localStorage.setItem("thumbnail",res.thumbnail);
-            window.location.replace(process.env.PUBLIC_URL)
+            window.location.replace("/")
         } catch(e) {
             const {status} = e.response;
             switch (status) {
@@ -71,7 +71,7 @@ const Login = () => {
                 <InputWithLabel label={"이메일"} type="text" placeholder="이메일을 입력해주세요" value={email} onChange={e=>setEmail(e.target.value)}/>
                 <InputWithLabel label={"비밀번호"} type="password" placeholder="비밀번호를 입력해주세요" value={password} onChange={e=>setPassword(e.target.value)}/>
                 <AuthButton onClick={onLogin}>로그인</AuthButton>
-                <RightAlignLink to={process.env.PUBLIC_URL+"/auth/register"}>회원가입</RightAlignLink>
+                <RightAlignLink to="/auth/register">회원가입</RightAlignLink>
             </InputWrap>
         </Container>
         </>

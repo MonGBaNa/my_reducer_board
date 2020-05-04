@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { api } from '../api';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import {Login, Register, Home, View, Write, Modify, ProfileModify, NotFound, test, AuthRoute} from '../Routes'
 
 const App = (props) => {
@@ -21,18 +21,18 @@ const App = (props) => {
   },[])
   return (
     <>
-      <Router>
+      <Router basename="/">
         <Switch>
-          <AuthRoute exact path={process.env.PUBLIC_URL + "/"} isAuth={localStorage.getItem("username") !== null} component={Home}/>
-          <Route path={process.env.PUBLIC_URL + "/write"} component={Write} />
-          <Route path={process.env.PUBLIC_URL + "/modify/:id"} component={Modify} />
-          <Route path={process.env.PUBLIC_URL + "/view/:id"} component={View} />
-          <Route path={process.env.PUBLIC_URL + "/auth/login"} component={Login} />
-          <Route path={process.env.PUBLIC_URL + "/auth/register"} component={Register} />
-          <Route path={process.env.PUBLIC_URL + "/profile/modify"} component={ProfileModify} />
-          <Route path={process.env.PUBLIC_URL + "/notfound"} component={NotFound} />
-          <Route path={process.env.PUBLIC_URL + "/test"} component={test} />
-          <Redirect path="*" to={process.env.PUBLIC_URL + "/notfound"} />
+          <AuthRoute exact path="/" isAuth={localStorage.getItem("username") !== null} component={Home}/>
+          <Route path="/write" component={Write} />
+          <Route path="/modify/:id" component={Modify} />
+          <Route path="/view/:id" component={View} />
+          <Route path="/auth/login" component={Login} />
+          <Route path="/auth/register" component={Register} />
+          <Route path="/profile/modify" component={ProfileModify} />
+          <Route path="/notfound" component={NotFound} />
+          <Route path="/test" component={test} />
+          <Redirect path="*" to="/notfound" />
         </Switch>
       </Router>
     </>

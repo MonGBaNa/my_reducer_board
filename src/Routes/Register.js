@@ -161,7 +161,7 @@ const Register = () => {
             localStorage.setItem("id",res.id);
             localStorage.setItem("username",res.username);
             localStorage.setItem("thumbnail",res.thumbnail);
-            window.location.replace(process.env.PUBLIC_URL)
+            window.location.replace("/")
         } catch(e) {
             throw e;
         }
@@ -188,7 +188,7 @@ const Register = () => {
                 <InputWithLabel label={"비밀번호 확인"} type="password" placeholder="비밀번호를 재입력해주세요" value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} maxLength="16"/>
                 {confirmPassword !== "" ? (<ConfirmText className="px-2" check={password === confirmPassword}>{password === confirmPassword ? "비밀번호가 일치합니다." : "비밀번호가 일치하지 않습니다." }</ConfirmText>) : null}
                 <AuthButton onClick={onRegister}>회원가입</AuthButton>
-                <RightAlignLink to={process.env.PUBLIC_URL+"/auth/login"}>로그인</RightAlignLink>
+                <RightAlignLink to="/auth/login">로그인</RightAlignLink>
             </InputWrap>
         </Container>
         </>

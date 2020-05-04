@@ -67,7 +67,7 @@ const Modify = (props) => {
                 author:localStorage.getItem('id'),
                 text:content
             })   
-            window.location.replace(process.env.PUBLIC_URL+`/view/${id}`) 
+            window.location.replace(`/view/${id}`) 
         } catch (e) {
             throw e
         }
@@ -102,11 +102,11 @@ const Modify = (props) => {
             <ContentsInput className="w-full p-2 border rounded" value={content} onChange={e=>contentChange(e.target.value)} required maxLength="1000" style={{resize:"none"}}/> 
             <div className="px-1 mb-2 flex justify-end">글자수 {contentCnt}/1000</div>
             <div className="px-1 flex justify-end">
-                <Link to={process.env.PUBLIC_URL+`/view/${id}`} onClick={handleModify}>
+                <Link to={`/view/${id}`} onClick={handleModify}>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 mr-2 rounded shadow">확인</button>
                 </Link>
                 
-                <Link to={process.env.PUBLIC_URL+`/view/${id}`}>
+                <Link to={`/view/${id}`}>
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow">취소</button>
                 </Link>
             </div>
