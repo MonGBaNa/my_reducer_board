@@ -123,8 +123,8 @@ const ProfileModify = () => {
 
             </InputWrap>
             <BtnWrap className="flex w-full">
-                <AuthButton to="/" onClick={()=>handleModify()}>수정완료</AuthButton>
-                <AuthButton to="/" >취소</AuthButton>
+                <AuthButton onClick={()=>handleModify()}>수정완료</AuthButton>
+                <AuthButton onClick={()=>history.replace('/')} >취소</AuthButton>
             </BtnWrap>
             
         </Container>

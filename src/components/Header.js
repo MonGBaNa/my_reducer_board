@@ -74,11 +74,10 @@ const Header = ({title = "미정", isNavi = false}) => {
     let history = useHistory();
 
     const onLogout = () => {
-        
         localStorage.removeItem('id')
         localStorage.removeItem('username')
         localStorage.removeItem('thumbnail')
-        history.replace('/')
+        window.location.reload();
     }
     return (
         <Container className="p-4 mb-10 bg-indigo-500 border-b-4 border-indigo-700 shadow-xl" isNavi={isNavi}>
@@ -99,7 +98,7 @@ const Header = ({title = "미정", isNavi = false}) => {
                     <h4 className="p-1 border" >{localStorage.getItem('username')}</h4>
                     <ul >
                         <li className="p-1 bg-gray-200 border" ><Link to="/profile/modify">정보수정</Link></li>
-                        <li className="p-1 bg-gray-200 border" onClick={onLogout}><Link to="/auth/login" >로그아웃</Link></li>
+                        <li className="p-1 bg-gray-200 border" onClick={onLogout}><Link to="/" >로그아웃</Link></li>
                     </ul>
                 </Navi>
                 <Overlay className="overlay" onClick={()=>{setIsNaviOn(!isNaviOn)}}/>
