@@ -160,6 +160,8 @@ const Register = () => {
             localStorage.setItem("id",res.id);
             localStorage.setItem("username",res.username);
             localStorage.setItem("thumbnail",res.thumbnail);
+            window.location.hash = "#/"
+            window.location.reload();
         } catch(e) {
             throw e;
         }

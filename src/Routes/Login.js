@@ -29,6 +29,7 @@ const Login = () => {
 
     if(localStorage.getItem("username") !== null) { 
         window.location.hash = "#/"
+        window.location.reload();
     }
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -46,6 +47,8 @@ const Login = () => {
             localStorage.setItem("id",res.id);
             localStorage.setItem("username",res.username);
             localStorage.setItem("thumbnail",res.thumbnail);
+            window.location.hash = "#/"
+            window.location.reload();
         } catch(e) {
             const {status} = e.response;
             switch (status) {
