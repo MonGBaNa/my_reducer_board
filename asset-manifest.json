@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/my_reducer_board/static/css/main.2d684372.chunk.css",
-    "main.js": "/my_reducer_board/static/js/main.c439fe80.chunk.js",
-    "main.js.map": "/my_reducer_board/static/js/main.c439fe80.chunk.js.map",
+    "main.js": "/my_reducer_board/static/js/main.36e9bf14.chunk.js",
+    "main.js.map": "/my_reducer_board/static/js/main.36e9bf14.chunk.js.map",
     "runtime-main.js": "/my_reducer_board/static/js/runtime-main.7d186e1e.js",
     "runtime-main.js.map": "/my_reducer_board/static/js/runtime-main.7d186e1e.js.map",
     "static/js/2.b85a3288.chunk.js": "/my_reducer_board/static/js/2.b85a3288.chunk.js",
     "static/js/2.b85a3288.chunk.js.map": "/my_reducer_board/static/js/2.b85a3288.chunk.js.map",
     "index.html": "/my_reducer_board/index.html",
-    "precache-manifest.51f6d91efe00124861678357e4485375.js": "/my_reducer_board/precache-manifest.51f6d91efe00124861678357e4485375.js",
+    "precache-manifest.8fc3dc75bbaa2f86b09dd13754857da8.js": "/my_reducer_board/precache-manifest.8fc3dc75bbaa2f86b09dd13754857da8.js",
     "service-worker.js": "/my_reducer_board/service-worker.js",
     "static/css/main.2d684372.chunk.css.map": "/my_reducer_board/static/css/main.2d684372.chunk.css.map",
     "static/js/2.b85a3288.chunk.js.LICENSE.txt": "/my_reducer_board/static/js/2.b85a3288.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.7d186e1e.js",
     "static/js/2.b85a3288.chunk.js",
     "static/css/main.2d684372.chunk.css",
-    "static/js/main.c439fe80.chunk.js"
+    "static/js/main.36e9bf14.chunk.js"
   ]
 }
