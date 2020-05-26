@@ -158,12 +158,10 @@ const Register = () => {
                 email,
                 password
             });
-            await localStorage.setItem("id",res.id);
-            await localStorage.setItem("username",res.username);
-            await localStorage.setItem("thumbnail",res.thumbnail);
-            window.location.hash = "#/"
-            window.location.href = "https://mongbana.github.io/my_reducer_board/"
-            return;
+            localStorage.setItem("id",res.id);
+            localStorage.setItem("username",res.username);
+            localStorage.setItem("thumbnail",res.thumbnail);
+            window.location.reload();
         } catch(e) {
             throw e;
         }

@@ -49,9 +49,7 @@ const Login = () => {
             localStorage.setItem("id",res.id);
             localStorage.setItem("username",res.username);
             localStorage.setItem("thumbnail",res.thumbnail);
-            window.location.hash = "#/"
-            window.location.href = "https://mongbana.github.io/my_reducer_board/"
-            return;
+            window.location.reload();
         } catch(e) {
             const {status} = e.response;
             switch (status) {
