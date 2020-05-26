@@ -33,7 +33,9 @@ const Login = () => {
     }
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const onLogin = async() => {
+
+    const onLogin = async(e) => {
+        e.preventDefault();
         if(email.trimLeft().trimRight() === "" || password.trimLeft().trimRight() === ""){
             window.alert("이메일 또는 비밀번호를 입력해주세요")
             return false;
@@ -48,7 +50,8 @@ const Login = () => {
             localStorage.setItem("username",res.username);
             localStorage.setItem("thumbnail",res.thumbnail);
             window.location.hash = "#/"
-            window.location.reload();
+            window.location.href = "https://mongbana.github.io/my_reducer_board/"
+            return;
         } catch(e) {
             const {status} = e.response;
             switch (status) {
@@ -72,7 +75,7 @@ const Login = () => {
             <InputWrap className="px-4 py-6">
                 <InputWithLabel label={"이메일"} type="text" placeholder="이메일을 입력해주세요" value={email} onChange={e=>setEmail(e.target.value)}/>
                 <InputWithLabel label={"비밀번호"} type="password" placeholder="비밀번호를 입력해주세요" value={password} onChange={e=>setPassword(e.target.value)}/>
-                <AuthButton to="/" onClick={onLogin}>로그인</AuthButton>
+                <AuthButton onClick={onLogin}>로그인</AuthButton>
                 <RightAlignLink to="/auth/register">회원가입</RightAlignLink>
             </InputWrap>
         </Container>

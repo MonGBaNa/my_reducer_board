@@ -102,7 +102,8 @@ const Register = () => {
         }
     }
 
-    const onRegister = async() => {
+    const onRegister = async(e) => {
+        e.preventDefault();
         const pattern = /\s/g;
         if (!confirmEmail.useable) {
             window.alert("이메일 중복 확인이 필요합니다.")
@@ -157,15 +158,15 @@ const Register = () => {
                 email,
                 password
             });
-            localStorage.setItem("id",res.id);
-            localStorage.setItem("username",res.username);
-            localStorage.setItem("thumbnail",res.thumbnail);
+            await localStorage.setItem("id",res.id);
+            await localStorage.setItem("username",res.username);
+            await localStorage.setItem("thumbnail",res.thumbnail);
             window.location.hash = "#/"
-            window.location.reload();
+            window.location.href = "https://mongbana.github.io/my_reducer_board/"
+            return;
         } catch(e) {
             throw e;
         }
-        
     }
 
     return (
@@ -187,7 +188,7 @@ const Register = () => {
                 <InputWithLabel label={"비밀번호"} condition={"( 공백없이 6자 이상 16자 이하로 입력해주세요 )"} type="password" placeholder="비밀번호를 입력해주세요" value={password} onChange={e=>setPassword(e.target.value)} maxLength="16"/>
                 <InputWithLabel label={"비밀번호 확인"} type="password" placeholder="비밀번호를 재입력해주세요" value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} maxLength="16"/>
                 {confirmPassword !== "" ? (<ConfirmText className="px-2" check={password === confirmPassword}>{password === confirmPassword ? "비밀번호가 일치합니다." : "비밀번호가 일치하지 않습니다." }</ConfirmText>) : null}
-                <AuthButton to="/" onClick={onRegister}>회원가입</AuthButton>
+                <AuthButton onClick={onRegister}>회원가입</AuthButton>
                 <RightAlignLink to="/auth/login">로그인</RightAlignLink>
             </InputWrap>
         </Container>

@@ -5,7 +5,6 @@ import InputWithLabel from '../AuthComponents/InputWithLabel';
 import AuthButton from '../AuthComponents/AuthButton';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
-import { useHistory } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -46,7 +45,6 @@ const ProfileModify = () => {
     const [currentPassword, setCurrentPassword] = useState("");
     const [changePassword, setChangePassword] = useState("");
     const [changePasswordConfirm, setChangePasswordConfirm] = useState("");
-    let history = useHistory();
 
     const getProfile = async() => {
         try {
@@ -64,7 +62,8 @@ const ProfileModify = () => {
         getProfile();
     },[])
 
-    const handleModify = async() => {
+    const handleModify = async(e) => {
+        e.preventDefault();
         const blankChe = /\s/g;
         if(username === changeUsername) {
             window.alert('기존의 닉네임과 동일합니다.')
@@ -96,8 +95,8 @@ const ProfileModify = () => {
             });
 
             localStorage.setItem("username",res.username);
-
-            history.replace('/')
+            window.location.hash = "#/"
+            window.location.href = "https://mongbana.github.io/my_reducer_board/"
         } catch(e) {
             console.log(e.response)
             throw e;
@@ -123,8 +122,8 @@ const ProfileModify = () => {
 
             </InputWrap>
             <BtnWrap className="flex w-full">
-                <AuthButton onClick={()=>handleModify()}>수정완료</AuthButton>
-                <AuthButton onClick={()=>history.replace('/')} >취소</AuthButton>
+                <AuthButton onClick={handleModify}>수정완료</AuthButton>
+                <AuthButton to="/" >취소</AuthButton>
             </BtnWrap>
             
         </Container>
