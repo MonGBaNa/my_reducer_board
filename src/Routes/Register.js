@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { api } from '../api';
+import { Redirect } from 'react-router-dom';
 import InputWithLabel from '../AuthComponents/InputWithLabel';
 import AuthButton from '../AuthComponents/AuthButton';
 import RightAlignLink from '../AuthComponents/RightAlignLink';
