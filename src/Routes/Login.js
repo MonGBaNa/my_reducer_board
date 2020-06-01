@@ -31,6 +31,7 @@ const Login = () => {
         window.location.hash = "#/"
         window.location.reload();
     }
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -67,6 +68,7 @@ const Login = () => {
 
     return (
         <>
+        { localStorage.getItem("id") !== null ? window.location.reload() : null }
         <Header />
         <Container className="bg-indigo-100 mx-auto border-2 border-indigo-400 shadow-lg rounded-lg">
             <Title className="bg-indigo-400 text-center text-gray-900 font-bold py-2 select-none">로그인</Title>
