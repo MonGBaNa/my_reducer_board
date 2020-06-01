@@ -171,7 +171,7 @@ const Register = () => {
     return (
         <>
         {
-            localStorage.getItem('id') === null ? (
+            localStorage.getItem('id') !== null ? (
                 <Redirect to="/" />
             ) : (
                 <>
