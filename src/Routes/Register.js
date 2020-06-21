@@ -159,10 +159,6 @@ const Register = () => {
                 email,
                 password
             });
-            localStorage.setItem("id",res.id);
-            localStorage.setItem("username",res.username);
-            localStorage.setItem("thumbnail",res.thumbnail);
-            window.location.hash = '/';
         } catch(e) {
             throw e;
         }
